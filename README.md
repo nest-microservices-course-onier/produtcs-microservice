@@ -5,6 +5,13 @@
 # Project
 Products app that will help to build the microservice infrastructure.
 
+# Steps to run the app in dev environment
+1. clone the repository if it does not already exists
+2. install dependencies
+3. create a file `.env` based on `.env.template`
+4. execute prisma migration `npx prisma generate dev`
+5. run with command `npm run start:dev`
+
 # PRISMA
 1. Prisma
 ```
