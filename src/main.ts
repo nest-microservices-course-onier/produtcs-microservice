@@ -8,12 +8,16 @@ import { envs } from './config';
 
 async function bootstrap() {
   // const app = await NestFactory.create(AppModule);
+
+  // console.log(envs.natsServers); // only for test NATS_SERVERS env variable
+
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
     {
-      transport: Transport.TCP,
+      transport: Transport.NATS,
       options: {
-        port: envs.port,
+        // servers: ['nats://localhost:4222'], // without env file
+        servers: envs.natsServers, // with NATS_SERVERS in the env file 
       },
     },
   );
